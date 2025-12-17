@@ -44,3 +44,23 @@ get_world_size()
 
 # pass -> 계속
 # break -> 중단
+
+# 산술 연산자: +, -, *, /, //, %, **
+# 비교 연산자: ==, !=, <=, >=, <, >
+# 불리언 연산자: not, and, or
+
+# 좌표 반환
+get_pos_x()
+get_pos_y()
+
+# 아이템 개수 체크
+num_items(Items.Hay)
+
+# 땅, 개체 타입 체크
+get_entity_type()
+get_ground_type()
+# 없음 -> None
+
+# 해금 체크
+num_unlocked(Unlocks.Speed)
+num_unlocked(Unlocks.Senses)
