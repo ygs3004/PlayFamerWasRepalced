@@ -444,8 +444,8 @@ West = Direction()
 The direction west, i.e. left.
 """
 
-
 # -------------------------------------------------------------------------------
+# 수확
 def harvest() -> bool:
     """
     Harvests the entity under the drone.
