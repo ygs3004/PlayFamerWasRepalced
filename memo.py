@@ -23,5 +23,24 @@ move(East)
 move(South)
 move(West)
 
-# 심기
+# 나무 심기
+# 지정된 entity 비용을 지불하고 드론 아래에 심습니다.
+# 비용이 부족하거나, 땅 종류가 틀리거나, 이미 식물이 심어져 있으면 실패.
+# 성공 True, False를 반환
+# 성공하면 실행하는 데 200틱, 그렇지 않으면 1틱이 필요
 plant(Entities.Bush)
+
+# 월드 크기 체크
+get_world_size()
+
+# for range 예시
+# range(start = 0, end, step = 1)
+# for i in range(10):
+#     print(i)
+# for i in range(2,6):
+#     print(i)
+# for i in range(10, 0, -1):
+#     print(i)
+
+# pass -> 계속
+# break -> 중단
