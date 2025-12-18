@@ -1,12 +1,15 @@
 from __builtins__ import *
 
 # 초기화
-clear()
-min_saved = 500
+# clear()
+min_saved = 15000
 
 while True:
 
     for i in range(get_world_size()):
+        if get_water() < 0.2 and num_items(Items.Water) > 4:
+            use_item(Items.Water)
+
         # Hay
         if num_items(Items.Hay) < min_saved:
             if get_ground_type() == Grounds.Soil:
@@ -24,8 +27,6 @@ while True:
         else:
             if can_harvest():
                 harvest()
-            # if get_water() < 0.5 and num_items(Items.Water) > 10:
-            #     use_item(Items.Water)
             if get_ground_type() == Grounds.Grassland:
                 till()
             plant(Entities.Carrot)

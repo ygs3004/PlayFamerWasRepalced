@@ -34,22 +34,6 @@ plant(Entities.Bush)
 # 월드 크기 체크
 get_world_size()
 
-# for range 예시
-# range(start = 0, end, step = 1)
-# for i in range(10):
-#     print(i)
-# for i in range(2,6):
-#     print(i)
-# for i in range(10, 0, -1):
-#     print(i)
-
-# pass -> 계속
-# break -> 중단
-
-# 산술 연산자: +, -, *, /, //, %, **
-# 비교 연산자: ==, !=, <=, >=, <, >
-# 불리언 연산자: not, and, or
-
 # 좌표 반환
 get_pos_x()
 get_pos_y()
@@ -70,12 +54,6 @@ num_unlocked(Unlocks.Senses)
 till() # Grounds.Grassland <=> Grounds.Soil
 plant(Entities.Carrot)
 
-# 화면 출력
-print()
-# 기록
-quick_print()
-
-
 # 물 주기
 # 물의 범위 0 ~ 1
 # 0에서 기본 속도, 1에서 5배 속도
@@ -86,9 +64,18 @@ get_water()
 # 물 주기
 use_item(Items.Water)
 
-# 변수
-example_variable = "값"
+# 비료 사용(성장 2초 빠르게), 감염됨
+use_item(Items.Fertilizer)
+# 비료 사용시 수확 량의 절반 감염 상태 수확
+# 해당 아이템 사용시 근접(동서남북) 상태를 감염 <=> 정상 토글 함
+use_item(Items.Weird_Substance)
 
-# 함수
-def example_function(arg1, arg2 = "default value"):
-	pass
+# 호박 심기
+# NxN 지대의 호박이 합쳐 자라남
+# 20% 확률로 죽음, 죽을 시 제거 처리 되므로 수확할 필요 없음 can_harvest() False
+# 1*1 크기의 경우 1*1*1 = 1개
+# 2x2 크기의 경우 2*2*2 = 8개
+# 3x3 크기의 경우 3*3*3 = 27개
+# 4x4 크기의 경우 4*4*4 = 64개
+# 5x5 크기의 경우 5*5*5 = 125개
+# nxn 크기의 경우 호박은 n >= 6일 때 n*n*6개의 호박을 수확,
