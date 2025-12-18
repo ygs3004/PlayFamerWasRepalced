@@ -3,8 +3,6 @@ import farm
 
 # 초기화
 clear()
-min_saved = 15000
-
 while True:
     world_size = get_world_size()
 

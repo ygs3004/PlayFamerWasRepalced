@@ -11,14 +11,12 @@ def water_spread():
     if get_water() < min_water and num_items(Items.Water) > 4:
         use_item(Items.Water)
 
-
 # 풀
 def hay():
     if can_harvest():
         harvest()
     if get_ground_type() == Grounds.Soil:
         till()
-
 
 # 나무
 def wood():
@@ -30,8 +28,20 @@ def wood():
     if (x + y) % 2 == 1:
         plant(Entities.Tree)
     # 나무를 지을 수 없을 경우 풀이 자랄수 있도록
-    elif get_ground_type() == Grounds.Soil:
-        till()
+    else:
+        # farm_list = [Items.Hay, Items.Carrot, Items.Pumpkin]
+        # farm_fn = [hay, carrot, pumpkin]
+
+        # 호박은 뭉쳐 심을때 효율이 좋으므로 일단 제거
+        farm_list = [Items.Hay, Items.Carrot]
+        farm_fn = [hay, carrot]
+        min_idx = 0
+        min_amount = 99999999999
+        for i in range(len(farm_list)):
+            amount = num_items(farm_list[i])
+            if amount <= min_amount:
+                min_idx = i
+        farm_fn[min_idx]()
 
 
 # 당근
