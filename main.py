@@ -1,35 +1,28 @@
 from __builtins__ import *
+import farm
 
 # 초기화
-# clear()
+clear()
 min_saved = 15000
 
 while True:
+    world_size = get_world_size()
 
-    for i in range(get_world_size()):
-        if get_water() < 0.2 and num_items(Items.Water) > 4:
-            use_item(Items.Water)
+    for i in range(world_size):
+        x = get_pos_x()
+        y = get_pos_y()
+        world_mid = world_size / 2
 
-        # Hay
-        if num_items(Items.Hay) < min_saved:
-            if get_ground_type() == Grounds.Soil:
-                till()
-            if can_harvest():
-                harvest()
+        farm.water_spread()
 
-        # Wood
-        elif num_items(Items.Wood) < min_saved and (get_pos_x() + get_pos_y()) % 2 == 1:
-            if can_harvest():
-                harvest()
-            plant(Entities.Tree)
-
-        # Carrot
+        if x < world_mid and y < world_mid:
+            farm.hay()
+        elif x >= world_mid and y < world_mid:
+            farm.wood()
+        elif x >= world_mid and y >= world_mid:
+            farm.carrot()
         else:
-            if can_harvest():
-                harvest()
-            if get_ground_type() == Grounds.Grassland:
-                till()
-            plant(Entities.Carrot)
+            farm.pumpkin()
 
         move(North)
 
