@@ -91,4 +91,4 @@ example_variable = "값"
 
 # 함수
 def example_function(arg1, arg2 = "default value"):
-    pass
+	pass
