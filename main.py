@@ -1,8 +1,9 @@
 from __builtins__ import *
 import farm
+from farm import is_cross_type_one
 
 # 초기화
-clear()
+# clear()
 while True:
     world_size = get_world_size()
 
@@ -12,6 +13,7 @@ while True:
         world_mid = world_size / 2
 
         farm.water_spread()
+        # farm.fert()
 
         if x < world_mid and y < world_mid:
             farm.hay()

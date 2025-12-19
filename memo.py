@@ -4,13 +4,14 @@ from __builtins__ import *
 do_a_flip()
 # 돼지 쓰다 듬기
 pet_the_piggy()
-# 모자 바꾸기 기본 색상
+# 모자 바꾸기
 change_hat(Hats.Gray_Hat)
 change_hat(Hats.Purple_Hat)
 change_hat(Hats.Green_Hat)
 change_hat(Hats.Brown_Hat)
 change_hat(Hats.Tree_Hat)
 change_hat(Hats.Carrot_Hat)
+change_hat(Hats.Pumpkin_Hat)
 
 # 수확 가능 체크
 can_harvest()
@@ -79,3 +80,29 @@ use_item(Items.Weird_Substance)
 # 4x4 크기의 경우 4*4*4 = 64개
 # 5x5 크기의 경우 5*5*5 = 125개
 # nxn 크기의 경우 호박은 n >= 6일 때 n*n*6개의 호박을 수확,
+
+# 미로
+# use_item(Items.Weird_Substance, amount) 사용시 미로 생성
+# 미로의 크기는 Items.Weird_Substance amount 에 따라 변화
+
+# 밭 전체를 미로로
+# plant(Entities.Bush)
+# substance = get_world_size() * 2**(num_unlocked(Unlocks.Mazes) - 1)
+# use_item(Items.Weird_Substance, substance)
+# 미로의 벽일시 move() fail, can_move() 로 체크 가능
+# 보물의 위치 반환 x, y = measure()
+# 보물은 최대 300번까지 재배치
+
+# get_time()       게임 시작 후 경과 시간
+# get_tick_count() 실행 시작 후 수행된 틱 수
+
+# 최소값/최대값 min, max
+# 예시
+# min(3, 6, 11)
+# min([3, 6, 11])
+
+# 절대값
+# abs(-69) => 69
+
+# 0과 1 사이 임의값
+# random()
