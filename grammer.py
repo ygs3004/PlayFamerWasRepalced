@@ -49,3 +49,15 @@ quick_print(1)
 # 비교 연산자: ==, !=, <=, >=, <, >
 # 불리언 연산자: not, and, or
 
+# 딕셔너리 예시
+right_of = {North:East, East:South, South:West, West:North}
+x, y = get_pos_x(), get_pos_y()
+entity_dict = {(x,y):get_entity_type()}
+dict = {"key":"b"}
+# 딕셔너리 제거
+dict.pop("key")
+# 딕셔너리 키 체크 key in dict
+# 딕셔너리 루프
+for key in dict:
+	value = dict[key]
+

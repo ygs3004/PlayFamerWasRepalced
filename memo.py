@@ -106,3 +106,20 @@ use_item(Items.Weird_Substance)
 
 # 0과 1 사이 임의값
 # random()
+
+# 선인장
+# 선인장 크기가 정렬 되어있을 경우 n**2 개로 Items.Cactus 수확
+# measure 로 선인장 크기 측정
+# measure(direction) 으로 주변 크기 확인
+# swap(direction) 으로 객체교환
+
+# 혼합 재배
+pant_type, (x, y) = get_companion()
+# (Entities.Carrot, (3, 5))
+# 해당 하는 방식으로 심고 수확시 수확에 배율이 적용
+
+# 비용 체크
+# get_cost()
+# 해금 및 심는 비용 리턴
+# get_cost(Entities.Pumpkin) => {Items.Carrot:1}
+# get_cost(Unlocks.Loops, 0) => {Items.Hay:5}

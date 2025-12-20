@@ -12,9 +12,11 @@ def water_spread():
     if get_water() < min_water and num_items(Items.Water) > 4:
         use_item(Items.Water)
 
+
 # 비료 뿌리기
 def fert():
     use_item(Items.Fertilizer)
+
 
 # 풀
 def hay():
@@ -65,11 +67,13 @@ def pumpkin():
         till()
     plant(Entities.Pumpkin)
 
+
 def is_cross_type_one():
     x = get_pos_x()
     y = get_pos_y()
     # 격자로 지을 수 있도록
     return (x + y) % 2 == 1
+
 
 def is_cross_type_two():
     return not is_cross_type_one()
