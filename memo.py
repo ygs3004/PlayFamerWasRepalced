@@ -12,6 +12,7 @@ change_hat(Hats.Brown_Hat)
 change_hat(Hats.Tree_Hat)
 change_hat(Hats.Carrot_Hat)
 change_hat(Hats.Pumpkin_Hat)
+change_hat(Hats.Gold_Hat)
 
 # 수확 가능 체크
 can_harvest()

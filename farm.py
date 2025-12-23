@@ -7,7 +7,7 @@ from __builtins__ import *
 # 물 뿌리기
 def water_spread():
     # 물 필요 최소값 임의 값
-    min_water = 0.3
+    min_water = 0.6
     # 물 1탱크당 0.25 이므로 1 만큼 줄 수 있는지
     if get_water() < min_water and num_items(Items.Water) > 4:
         use_item(Items.Water)
@@ -77,3 +77,12 @@ def is_cross_type_one():
 
 def is_cross_type_two():
     return not is_cross_type_one()
+
+def make_maze_world_substance():
+    return get_world_size() * 2 ** (num_unlocked(Unlocks.Mazes) - 1)
+
+def make_maze_world():
+    clear()
+    plant(Entities.Bush)
+    substance = make_maze_world_substance()
+    use_item(Items.Weird_Substance, substance)
