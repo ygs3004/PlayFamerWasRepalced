@@ -78,8 +78,10 @@ def is_cross_type_one():
 def is_cross_type_two():
     return not is_cross_type_one()
 
+
 def make_maze_world_substance():
     return get_world_size() * 2 ** (num_unlocked(Unlocks.Mazes) - 1)
+
 
 def make_maze_world():
     clear()

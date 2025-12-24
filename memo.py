@@ -53,7 +53,7 @@ num_unlocked(Unlocks.Speed)
 num_unlocked(Unlocks.Senses)
 
 # 당근 심기(땅갈기 => 당근), 나무와 건초 소모
-till() # Grounds.Grassland <=> Grounds.Soil
+till()  # Grounds.Grassland <=> Grounds.Soil
 plant(Entities.Carrot)
 
 # 물 주기
@@ -62,7 +62,7 @@ plant(Entities.Carrot)
 # 10초에 물 탱크 하나가 인벤 토리 추가, 업그레이드당 2배
 # 물 1탱크는 0.25의 물
 # 물의 값
-get_water() 
+get_water()
 # 물 주기
 use_item(Items.Water)
 
@@ -116,6 +116,8 @@ use_item(Items.Weird_Substance)
 
 # 혼합 재배
 pant_type, (x, y) = get_companion()
+
+
 # (Entities.Carrot, (3, 5))
 # 해당 하는 방식으로 심고 수확시 수확에 배율이 적용
 
@@ -124,3 +126,14 @@ pant_type, (x, y) = get_companion()
 # 해금 및 심는 비용 리턴
 # get_cost(Entities.Pumpkin) => {Items.Carrot:1}
 # get_cost(Unlocks.Loops, 0) => {Items.Hay:5}
+
+# 메가팜, 추가드론
+# 추가 생산할 드론이 없다면 spawn_drone 은 None 을 반환
+# 예시
+def drone_function():
+    pass
+
+
+while True:
+    if spawn_drone(drone_function):
+        move(East)
