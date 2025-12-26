@@ -1,36 +1,6 @@
 from __builtins__ import *
 import farm
 
-
-# Hay, Wood, Carrot, Pumpkin
-def for_hwcp():
-    # 초기화
-    clear()
-    while True:
-        world_size = get_world_size()
-
-        for i in range(world_size):
-            x = get_pos_x()
-            y = get_pos_y()
-            world_mid = world_size / 2
-
-            farm.water_spread()
-            # farm.fert()
-
-            if x < world_mid and y < world_mid:
-                farm.hay()
-            elif x >= world_mid and y < world_mid:
-                farm.wood()
-            elif x >= world_mid and y >= world_mid:
-                farm.carrot()
-            else:
-                farm.pumpkin()
-
-            move(North)
-
-        move(East)
-
-
 def find_treasure(spin):
     # 초기화 및 미로 생성
     drone_directions = [[North, East, South, West], [East, North, West, South]]
@@ -47,7 +17,7 @@ def find_treasure(spin):
                 substance = farm.make_maze_world_substance()
                 use_item(Items.Weird_Substance, substance)
                 print(max_drones(), " = = ", num_drones())
-                if not max_drones() == num_drones():
+                if not can_spawn():
                     def new_task():
                         find_treasure(spin +1)
                     spawn_drone(new_task)
@@ -67,3 +37,51 @@ def find_treasure_move_random():
         if get_entity_type() == Entities.Treasure:
             substance = farm.make_maze_world_substance()
             use_item(Items.Weird_Substance, substance)
+
+def can_spawn():
+    return not max_drones() == num_drones()
+
+def farm_hwcp():
+    world_size = get_world_size()
+    while True:
+        for i in range(world_size):
+            x = get_pos_x()
+            y = get_pos_y()
+            world_mid = world_size / 2
+
+            farm.water_spread()
+            # farm.fert()
+
+            if x < world_mid and y < world_mid:
+                farm.hay()
+            elif x >= world_mid and y < world_mid:
+                farm.wood()
+            elif x >= world_mid and y >= world_mid:
+                farm.carrot()
+            else:
+                farm.pumpkin()
+
+            move(North)
+        move(East)
+
+def move_area(area):
+    half_world_size = get_world_size() / 2
+
+    # change_hat(Hats.Tree_Hat)
+    # change_hat(Hats.Carrot_Hat)
+    # change_hat(Hats.Pumpkin_Hat)
+
+
+    if area == 1:
+        for i in range(half_world_size):
+            pass
+    if area == 2:
+        for i in range(half_world_size):
+            move(East)
+    if area == 3:
+        for i in range(half_world_size):
+            move(North)
+    if area == 4:
+        for i in range(half_world_size):
+            move(East)
+            move(North)
