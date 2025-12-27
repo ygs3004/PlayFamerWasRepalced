@@ -20,16 +20,14 @@ def fert():
 
 # 풀
 def hay():
-    if can_harvest():
-        harvest()
+    fert_harvest()
     if get_ground_type() == Grounds.Soil:
         till()
 
 
 # 나무
 def wood():
-    if can_harvest():
-        harvest()
+    fert_harvest()
     # 격자로 지을 수 있도록
     if is_cross_type_one():
         plant(Entities.Tree)
@@ -52,6 +50,7 @@ def wood():
 
 # 당근
 def carrot():
+    fert_harvest()
     if can_harvest():
         harvest()
     if get_ground_type() == Grounds.Grassland:
@@ -61,8 +60,7 @@ def carrot():
 
 # 호박
 def pumpkin():
-    if can_harvest():
-        harvest()
+    fert_harvest()
     if get_ground_type() == Grounds.Grassland:
         till()
     plant(Entities.Pumpkin)
@@ -74,17 +72,21 @@ def is_cross_type_one():
     # 격자로 지을 수 있도록
     return (x + y) % 2 == 1
 
-
 def is_cross_type_two():
     return not is_cross_type_one()
 
-
 def make_maze_world_substance():
     return get_world_size() * 2 ** (num_unlocked(Unlocks.Mazes) - 1)
-
 
 def make_maze_world():
     clear()
     plant(Entities.Bush)
     substance = make_maze_world_substance()
     use_item(Items.Weird_Substance, substance)
+
+# 비료 후 수확
+def fert_harvest():
+    if not can_harvest() and not get_entity_type() == None:
+        use_item(Items.Fertilizer)
+    if can_harvest():
+        harvest()

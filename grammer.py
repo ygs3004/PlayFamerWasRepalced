@@ -26,7 +26,7 @@ example_variable = "값"
 
 # 함수
 def example_function(arg1, arg2 = "default value"):
-	pass
+    pass
 
 # 화면 출력
 print(1)
@@ -59,5 +59,5 @@ dict.pop("key")
 # 딕셔너리 키 체크 key in dict
 # 딕셔너리 루프
 for key in dict:
-	value = dict[key]
+    value = dict[key]
 

@@ -14,7 +14,7 @@ def for_treasure():
 # Hay, Wood, Carrot, Pumpkin
 def for_hwcp():
     # 초기화
-    clear()
+    # clear()
 
     def task_1():
         drone.move_area(1)
