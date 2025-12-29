@@ -16,7 +16,7 @@ def find_treasure(spin):
             if get_entity_type() == Entities.Treasure:
                 substance = farm.make_maze_world_substance()
                 use_item(Items.Weird_Substance, substance)
-                if not can_spawn():
+                if can_spawn():
                     def new_task():
                         find_treasure(spin +1)
                     spawn_drone(new_task)

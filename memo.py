@@ -132,8 +132,35 @@ pant_type, (x, y) = get_companion()
 # 예시
 def drone_function():
     pass
+# while True:
+#     if spawn_drone(drone_function):
+#         move(East)
 
+# 시뮬레이션
+# 실행을 시작할 파일
+filename = "f1"
 
-while True:
-    if spawn_drone(drone_function):
-        move(East)
+# 모든 것을 해금하고 완전히 업그레이드한 상태로 시작
+sim_unlocks = Unlocks
+#
+# 당근 10000개와 건초 50개로 시작
+sim_items = {Items.Carrot : 10000, Items.Hay : 50}
+#
+# 값이 13인 전역 변수 "a"로 시작
+sim_globals = {"a" : 13}
+#
+# 고정된 랜덤 시드 사용
+seed = 0
+#
+# 시뮬레이션 속도를 64배로 높임
+speedup = 64
+
+run_time = simulate(filename, sim_unlocks, sim_items, sim_globals, seed, speedup)
+
+# 자동 해금
+# 속도 해금
+unlock(Unlocks.Speed)
+# 확장해금
+unlock(Unlocks.Expand) 
+# 해금비용 확인
+get_cost(Unlocks.Loops) # => {Items.Hay:5}
