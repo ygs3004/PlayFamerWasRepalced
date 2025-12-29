@@ -8,7 +8,7 @@ def find_treasure(spin):
     directions = drone_directions[spin]
     idx =  0
     cnt = 0
-    check_cycle = get_world_size() ** 2
+    check_cycle = get_world_size() ** 4
     
     while True:
         dir = directions[idx]
