@@ -8,11 +8,14 @@ def find_treasure(spin):
     directions = drone_directions[spin]
     idx =  0
     cnt = 0
+    check_cycle = get_world_size() ** 2
+    
     while True:
         dir = directions[idx]
         if can_move(dir):
             idx = (idx - 1) % 4
             move(dir)
+            cnt = cnt + 1
             if get_entity_type() == Entities.Treasure:
                 substance = farm.make_maze_world_substance()
                 use_item(Items.Weird_Substance, substance)
@@ -20,12 +23,14 @@ def find_treasure(spin):
                     def new_task():
                         find_treasure(spin +1)
                     spawn_drone(new_task)
-                cnt = cnt + 1
+                cnt = 0
         else:
             idx = (idx + 1) % 4
 
-        if cnt >= 300:
+        # 미로에 순환이 생겨서 찾지 못할땐 리셋
+        if cnt >= check_cycle:
             farm.make_maze_world()
+            cnt = 0
 
 def find_treasure_move_random():
     directions = [North, East, South, West]
