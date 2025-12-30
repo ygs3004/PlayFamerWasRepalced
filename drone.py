@@ -1,5 +1,7 @@
 from __builtins__ import *
 import farm
+from farm import fert_harvest
+
 
 def find_treasure(spin):
     # 초기화 및 미로 생성
@@ -8,7 +10,7 @@ def find_treasure(spin):
     directions = drone_directions[spin]
     idx =  0
     cnt = 0
-    check_cycle = get_world_size() ** 4
+    check_cycle = (get_world_size() ** 2) * 4
     
     while True:
         dir = directions[idx]
@@ -89,3 +91,8 @@ def move_area(area):
         for i in range(half_world_size):
             move(East)
             move(North)
+
+def row_hay():
+    while True:
+        move(East)
+        farm.hay()

@@ -1,6 +1,8 @@
 import drone
 import farm
 from __builtins__ import *
+from drone import row_hay
+
 
 def for_treasure():
     farm.make_maze_world()
@@ -14,7 +16,7 @@ def for_treasure():
 # Hay, Wood, Carrot, Pumpkin
 def for_hwcp():
     # 초기화
-    # clear()
+    clear()
 
     def task_1():
         drone.move_area(1)
@@ -37,3 +39,10 @@ def for_hwcp():
     spawn_drone(task_3)
     spawn_drone(task_4)
     task_1()
+
+def for_hay():
+    while drone.can_spawn():
+        spawn_drone(drone.row_hay)
+        move(North)
+
+    row_hay()
