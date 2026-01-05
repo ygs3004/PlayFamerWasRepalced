@@ -26,7 +26,7 @@ def hay():
 
 
 # 나무
-def wood():
+def wood_and_carrot():
     fert_harvest()
     # 격자로 지을 수 있도록
     if is_cross_type_one():

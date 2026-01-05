@@ -1,3 +1,4 @@
+import util
 from __builtins__ import *
 import farm
 from farm import fert_harvest
@@ -61,7 +62,7 @@ def farm_hwcp():
             if x < world_mid and y < world_mid:
                 farm.hay()
             elif x >= world_mid and y < world_mid:
-                farm.wood()
+                farm.wood_and_carrot()
             elif x >= world_mid and y >= world_mid:
                 farm.carrot()
             else:
@@ -96,3 +97,22 @@ def row_hay():
     while True:
         move(East)
         farm.hay()
+
+def row_wood_and_carrot():
+    open_hats = [Hats.Gray_Hat,
+                 Hats.Purple_Hat,
+                 Hats.Green_Hat,
+                 Hats.Brown_Hat,
+                 Hats.Tree_Hat,
+                 Hats.Carrot_Hat,
+                 Hats.Pumpkin_Hat,
+                 Hats.Gold_Hat
+                 ]
+    len(open_hats)
+    random_index = util.get_random_index(open_hats)
+    change_hat(open_hats[random_index])
+
+    while True:
+        move(East)
+        if can_harvest():
+            farm.wood_and_carrot()

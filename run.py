@@ -41,8 +41,17 @@ def for_hwcp():
     task_1()
 
 def for_hay():
+    clear()
     while drone.can_spawn():
         spawn_drone(drone.row_hay)
         move(North)
 
-    row_hay()
+    drone.row_hay()
+
+def for_wood_and_carrot():
+    clear()
+    while drone.can_spawn():
+        spawn_drone(drone.row_wood_and_carrot)
+        move(North)
+
+    drone.row_wood_and_carrot()
